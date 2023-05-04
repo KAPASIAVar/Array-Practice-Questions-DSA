@@ -18,6 +18,19 @@ int solve(int arr[],int n){
     if(n==1)return 1;
     else return -1;
 }
+int solve1(int a[],int n){ // Optimized with time comp-o(n) and space comp-o(n)
+    int sum=0;
+        for(int i=0;i<n;i++){
+            sum+=a[i];
+        }
+        int Rsum=0;
+        for(int i=0;i<n;i++){
+            sum-=a[i];
+            if(sum==Rsum)return i+1;
+            Rsum+=a[i];
+        }
+        return -1;
+}
 int main(){
 int arr[]={1,2,6,4,0,-1};
 cout<<solve(arr,6)<<endl;
